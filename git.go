@@ -162,6 +162,8 @@ func createPR(ctx context.Context, client *github.Client) (err error) {
 	prSubject := "test PR"
 	prBranch := "test-1"
 
+	baseBranch := "main"
+
 	sourceOwner := "ashtatripathi"
 	prRepo := "abt-repo"
 
@@ -172,7 +174,7 @@ func createPR(ctx context.Context, client *github.Client) (err error) {
 	newPR := &github.NewPullRequest{
 		Title:               &prSubject,
 		Head:                &commitBranch,
-		Base:                &prBranch,
+		Base:                &baseBranch,
 		Body:                &prDescription,
 		MaintainerCanModify: github.Bool(true),
 	}
